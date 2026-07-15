@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анна Соколова — Репетитор по русскому языку</title>
+    <!-- Шрифт с засечками, книжный стиль -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --paper: #FAF7F2;
+            --ink: #3B3A36;
+            --red: #B5453A;
+            --soft-brown: #D9C8B2;
+            --border-color: #C4B6A6;
+            --card-bg: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        body {
+            font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+            background-color: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path d="M30 5 L55 55 L5 55 Z" fill="none" stroke="%23D9C8B2" stroke-width="0.3" opacity="0.4"/></svg>');
+            background-size: 80px 80px;
+        }
+
+    
+        header {
+            background-color: #F4EFE6;
+            border-bottom: 2px solid var(--border-color);
+            padding: 2.5rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .photo-frame {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid var(--border-color);
+            background-color: #EDE4D8;
+            margin: 0 auto 1.2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.8rem;
+            color: #A0927B;
+            box-shadow: 0 0 0 8px rgba(196, 182, 166, 0.2);
+            position: relative;
+        }
+
+
+        .photo-frame::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 50%;
+            top: 18px;
+            right: 22px;
+        }
+
+        .photo-inner {
+            font-family: 'Neucha', cursive;
+            font-size: 5rem;
+            color: #8E806C;
+            user-select: none;
+        }
+
+        header h1 {
+            font-family: 'PT Serif', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #5F5B51;
+            font-weight: 400;
+        }
+
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 1.5rem;
+        }
+
+     
+        .goal-banner {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.6rem 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            box-shadow: var(--shadow);
+            flex-wrap: wrap;
+        }
+
+        .goal-icon {
+            font-size: 2.4rem;
+            background: #F4EFE6;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .goal-text h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            color: var(--ink);
+        }
+
+        .goal-text p {
+            font-size: 1.05rem;
+            color: #4A4740;
+        }
+
+        /* === ЦЕНА === */
+        .price-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 2rem 1.8rem 1.6rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #7A7467;
+            margin-bottom: 0.4rem;
+        }
+
+        .price-amount {
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: var(--red);
+            line-height: 1;
+            font-family: 'PT Serif', serif;
+        }
+
+        .price-period {
+            font-size: 1.1rem;
+            color: #6B6760;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .price-details {
+            display: inline-block;
+            background: #F4EFE6;
+            border: 1px dashed var(--border-color);
+            padding: 0.5rem 1.3rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: var(--ink);
+        }
+
+        /* === КОНТАКТЫ === */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--ink);
+            box-shadow: var(--shadow);
+            transition: background 0.2s;
+        }
+
+        .contact-card:hover {
+            background: #FCFAF6;
+            border-color: #B09A80;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            background: #F4EFE6;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-info h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8C8679;
+            font-weight: 400;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-value {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ink);
+            word-break: break-word;
+        }
+
+                .about-mini {
+            text-align: center;
+            margin: 2.5rem 0 1rem;
+            font-size: 1.05rem;
+            color: #5A554C;
+            font-style: italic;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            border-top: 1px dotted var(--border-color);
+            padding-top: 1.8rem;
+        }
+
+ 
+        footer {
+            text-align: center;
+            padding: 1.8rem 1.5rem;
+            color: #7A7467;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            background: #F4EFE6;
+            margin-top: 1.5rem;
+        }
+
+        .footer-note {
+            margin-top: 0.4rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .price-amount {
+                font-size: 3rem;
+            }
+            .goal-banner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+    
+            <div class="photo-frame">
+                <!-- Вместо иконки потом вставишь <img src="photo.jpg" style="width:100%; border-radius:50%;"> -->
+                <span class="photo-inner" aria-label="фото преподавателя" title="Место для фото">👩‍🏫</span>
+            </div>
+            <h1>Анна Соколова</h1>
+            <p class="subtitle">Преподаватель русского языка и литературы</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="goal-banner">
+            <div class="goal-icon">🎯</div>
+            <div class="goal-text">
+                <h2>Цель работы с учениками</h2>
+                <p>
+                    Научить чувствовать язык, а не заучивать правила. 
+                    Помогаю писать без ошибок, говорить свободно и сдать экзамены 
+                    на желаемый балл. Русский язык — это не страшно, а интересно.
+                </p>
+            </div>
+        </div>
+
+        <div class="price-card">
+            <div class="price-label">Стоимость занятия</div>
+            <div class="price-amount">1 500 ₽</div>
+            <div class="price-period">за 60 минут</div>
+            <div class="price-details">
+                ✦ Пробный урок — 1 000 ₽ (30 мин) ✦
+            </div>
+        </div>
+
+        <!-- КОНТАКТЫ -->
+        <div class="contacts-grid">
+            <a href="tel:+7999999999" class="contact-card">
+                <div class="contact-icon">📞</div>
+                <div class="contact-info">
+                    <h3>Телефон / WhatsApp</h3>
+                    <span class="contact-value">+7 (999) 999-99-99</span>
+                </div>
+            </a>
+
+            <a href="mailto:anna.russian@edu.ru" class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-info">
+                    <h3>Электронная почта</h3>
+                    <span class="contact-value">anna.russian@edu.ru</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="about-mini">
+            ✦ Подготовка к ОГЭ и ЕГЭ &bull; повышение грамотности &bull; русский для взрослых ✦
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© Анна Соколова, 2026. Репетитор русского языка.</p>
+        <p class="footer-note">Записывайтесь на первый урок — буду рада помочь!</p>
+    </footer>
+
+</body>
+</html>
